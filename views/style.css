@@ -1,0 +1,298 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fee440;
+  color: #00bbf9;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80vh;
+  margin: 0;
+  overflow: hidden;
+  
+font-family: 'Josefin Sans', sans-serif;
+ 
+}
+
+h1 {
+  margin: 20px 0 0;
+  font-size: 50px;
+  font-family: 'Anton', sans-serif;
+
+}
+
+p {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+/* --------------THE LOGIN PAGE STYLES------------------ */
+
+
+.login-form {
+  width: 300px;
+  margin: 200px auto;
+  font-family: Tahoma, Geneva, sans-serif;
+}
+.login-form h1 {
+  text-align: center;
+  /* color: #4d4d4d; */
+  /* font-size: 24px; */
+  padding: 20px 0 20px 0;
+}
+.login-form input[type="password"],
+.login-form input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #dddddd;
+  margin-bottom: 15px;
+  margin-top: 6px;
+  box-sizing:border-box;
+}
+.login-form label {
+  margin-bottom: 24px;
+}
+.login-form input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background-color: #9b5de5;
+  border: none;
+  border-radius: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* --------------THE GAME PAGE STYLES------------------ */
+
+.points {
+  color: rgb(73, 75, 33);
+  font-size: 25px;
+}
+.game-container {
+  padding: 20px 30px;
+  position: relative;
+  margin: auto;
+  height: 350px;
+  width: 450px;
+}
+
+.figure-container {
+  fill: transparent;
+  stroke: #2980b9;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  margin-top: 20px;
+margin-bottom: 100px;
+  transform: scale(1.5);
+
+}
+
+.figure-part {
+  display: none;
+
+}
+
+.wrong-letters-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.wrong-letters-container p {
+  margin: 0 0 15px;
+}
+
+.wrong-letters-container span {
+  font-size: 24px;
+  color: red;
+}
+
+.word {
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 95%;
+  color: #9b5de5;
+ 
+}
+
+.letter {
+  border-bottom: 3px solid #2980b9;
+  display: inline-flex;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  height: 50px;
+  width: 35px;
+;
+}
+
+.popup-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* display: flex; */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.popup {
+  background: #00f5d4;
+  color: #9b5de5;
+  border-radius: 5px;
+  box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  height: 310px;
+  font-size: 30px;
+}
+
+.popup button {
+  cursor: pointer;
+  background-color: #9b5de5;
+  color: #fff;
+  border: none;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.popup button:hover {
+  cursor: pointer;
+  background-color: #ba88f7;
+  transition: all 0.7s;
+}
+
+.popup button:active {
+  transform: scale(0.98);
+}
+
+.popup button:focus {
+  outline: 0;
+}
+
+.notification-container {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px 10px 0 0;
+  padding: 15px 20px;
+  position: absolute;
+  bottom: -50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.notification-container p {
+  margin: 0;
+}
+
+.notification-container.show {
+  transform: translateY(-50px);
+}
+
+.players-sections{
+  display: flex;
+  flex-direction: row;
+margin: 5px;
+}
+
+.score {
+  display: none;
+}
+
+section {
+  margin: 15px 50px;
+}
+
+.hidden {
+  display: none;
+}
+.player--0, .player--1 {
+  width: 250px;
+  padding: 15px;
+  border-radius: 5%;
+}
+.player--active {
+  width: 250px;
+  padding: 15px;
+  border-radius: 5%;
+  background-color: #f15bb5;
+  color: #fff;
+  transition: all 0.75s;
+}
+/* here */
+
+@keyframes winner-animation {
+0%   {background-color:red; left:0px; top:0px;}
+25%  {background-color:yellow; left:0; top:50px;}
+50%  {background-color:blue; left:0; top:0;}
+75%  {background-color:green; left:0px; top:50px;}
+100% {background-color:red; left:0px; top:0px;}
+}
+
+.player--winner {
+  width: 250px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(28, 157, 90);
+  transition:all 0.1s;
+  animation-name: winner-animation;
+  animation-duration: 0.7s;
+  position: relative;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 34px;
+}
+.player--winner:before {
+/* content: "$"; */
+background-color: green;
+font-weight: normal
+}
+
+
+/* Login Section */
+.login-container {
+margin-top: 150px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.inputs {
+
+padding: 20px;
+}
+.inputs input {
+width: 220px;
+height: 40px;
+margin: 15px;
+}
+
+.button button {
+margin-top: 30px;
+width: 120px;
+font-size: 20px;
+background-color: aquamarine;
+border: none;
+border-radius: 10px;
+padding: 8px;
+}
