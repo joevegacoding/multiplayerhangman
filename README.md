@@ -13,5 +13,8 @@ HTML5, CSS3 and Vanilla Javascript was used for this project for the sake of sim
 ## Usage
 The project comes with two servers. To run the scoresserver, simply navigate to the folder and run node.js. To run the main server, run node.js in the main directory.
 
+## Flowchart
+![](https://github.com/joevegacoding/multiplayerhangman/blob/main/images/hangmanflowchart.png)
+
 ## Gameplay
 ![](https://github.com/joevegacoding/multiplayerhangman/blob/main/images/hangmanmultiplayergameplay.gif) 
