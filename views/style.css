@@ -296,3 +296,9 @@ border: none;
 border-radius: 10px;
 padding: 8px;
 }
+
+
+.invisible {
+  display: none;
+  visibility: hidden;
+     }

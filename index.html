@@ -8,14 +8,17 @@
 	<body>
 		<div class="login-form">
 			<h1>Login Form</h1>
-			<form action="gamepage" method="POST">
-				<label for="">Player 1 Passcode</label>
-				<input type="password" name="username" placeholder="Enter Player 1 Passcode..." required>
-				<label for="">Player 2 Passcode</label>
-				<input type="password" name="password" placeholder="Enter Player 2 Passcode..." required>
+			<p style="color: black;" id="error"></p>
+			<form id="form" action="/gamepage" method="POST">
+				<label class="player-passcode">Player 1 Passcode</label>
+				<input id="player1-input" type="password" name="username" placeholder="Enter Player 1 Passcode..." required>
+				<label class="player-passcode">Player 2 Passcode</label>
+				<input id="player2-input" type="password" name="password" placeholder="Enter Player 2 Passcode..." required>
 				<input type="submit" value="Login">
 			</form>
 		</div>
-       
+       <script>
+
+	   </script>
 	</body>
 </html>

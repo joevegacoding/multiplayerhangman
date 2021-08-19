@@ -11,9 +11,12 @@ const figureParts = document.querySelectorAll('.figure-part');
 const player0El = document.querySelector('.player--0')
 const player1El = document.querySelector('.player--1')
 
+
 //Selecting elements
 const score0El = document.querySelector('#score--0');
 const score1El = document.getElementById('score--1');
+const lastScore1 = document.getElementById('last-score1')
+const lastScore2 = document.getElementById('last-score2')
 
 const winningMessage = 'Congratulations! You got a point! 😃';
 
@@ -35,6 +38,29 @@ const getWords = function() {
 		
 	})
 }
+
+function getPoints() {
+	// var results = [];
+	fetch('http://localhost:5000/get_score')
+	.then((response) => response.json())
+	.then((data) => {
+		// let lastScore1 = data[0].score_player1;
+		// let lastScore2 = data[0].score_player2;
+	
+		// results.push(lastScore1, lastScore2);
+
+document.getElementById('last-score1').innerHTML = `Total Score: ${data[0].total_player1}`;
+document.getElementById('last-score2').innerHTML = `Total Score: ${data[0].total_player2}`;
+// console.log( data[0].total_player1);
+		// console.log(data[0].score_player2);
+
+	})
+	// return results;
+}
+
+
+
+
 var fetchedWords = getWords();
 
 var words = ['gorilla', 'hippopotamus', 'rhinoceros', 'lion', 'cheetah', 'giraffe', 'porcupine', 'elephant', 'hippopotamus'];
@@ -169,6 +195,7 @@ playAgainBtn.addEventListener('click', () => {
 			document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
       		document.querySelector(`.player--${activePlayer}`).textContent = ` Player ${activePlayer + 1} Won ! 🏆`;
 			playable = false
+			
       
 		} else {
 		
@@ -217,4 +244,5 @@ displayWord();
 // 	  })
 // 	}
 getWords();
+getPoints()
      

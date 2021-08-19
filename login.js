@@ -3,8 +3,10 @@ var mysql = require('mysql');
 var express = require('express');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+const morgan = require('morgan');
 var path = require('path');
 var app = express();
+const cheerio = require('cheerio');
 // app.use("/assets",express.static("assets"));
 
 const connection = mysql.createConnection({
@@ -13,6 +15,7 @@ const connection = mysql.createConnection({
     password: "password",
     database: "hangman_database",
 });
+app.use(morgan('short'))
 app.use(express.static(__dirname + '/views'));
 app.use(express.static(path.join(__dirname, '/views')));
 app.use(session({
@@ -34,7 +37,10 @@ connection.connect(function(error){
 app.get('/', function(request, response) {
 	response.sendFile(path.join(__dirname + '/index.html'));
 });
-
+app.post('/add_score', (req, res) => {
+    console.log('Got body:', req.body);
+    res.sendStatus(200);
+});
 
 app.post('/gamepage', function(request, response) {
 	var username = request.body.username;
@@ -47,8 +53,19 @@ app.post('/gamepage', function(request, response) {
 				response.redirect('/gamepage');
              
 			} else {
-				response.send('Incorrect Username and/or Password!');
-			}			
+				
+				// const $ = cheerio.load(html);
+				// // response.flash('info', 'Flashed message')
+				// const messageError  =  $('.player-passcode')
+				// messageError.text().replaceWith('Error'); 
+				response.redirect('back');
+				// response.render('view', {errormessage: 'error!!'});
+				
+
+
+			}	
+			// $.html();
+				
 			response.end();
 		});
 	} else {
@@ -56,6 +73,18 @@ app.post('/gamepage', function(request, response) {
 		response.end();
 	}
 });
+
+// app.post('/add_score', (req, res) => {
+// 	console.log('Trying to create a new user');
+// 	console.log('Trying to create a new user');
+// 	res.end();
+// });
+
+
+
+
+
+
 
 // app.get('/gamepage', function(request, response) {
 // 	if (request.session.loggedin) {
